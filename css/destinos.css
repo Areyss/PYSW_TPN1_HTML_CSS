@@ -1,0 +1,243 @@
+/* css/destinos.css */
+/* Page Hero for internal pages */
+.page-hero {
+  padding-top: 140px;
+  padding-bottom: var(--spacing-16);
+  background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
+  color: white;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background: var(--color-bg);
+  clip-path: polygon(0 100%, 100% 100%, 100% 0);
+}
+
+.page-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: var(--spacing-4);
+  font-family: var(--font-serif);
+}
+
+.page-subtitle {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto;
+  opacity: 0.9;
+}
+
+/* CSS Filters Container */
+.filter-wrapper {
+  margin-bottom: var(--spacing-12);
+}
+
+.filter-controls {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-4);
+  margin-bottom: var(--spacing-8);
+}
+
+.filter-btn {
+  padding: var(--spacing-2) var(--spacing-6);
+  border-radius: var(--radius-full);
+  background-color: var(--color-bg-alt);
+  color: var(--color-text);
+  cursor: pointer;
+  border: 1px solid var(--color-border);
+  transition: all var(--transition-fast);
+  font-weight: 500;
+  user-select: none;
+}
+
+.filter-btn:hover {
+  background-color: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+}
+
+/* Input radios hidden visually but accessible */
+.filter-input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Styling the active label using CSS ~ combinator */
+#filter-all:checked~.filter-controls .label-all,
+#filter-cultural:checked~.filter-controls .label-cultural,
+#filter-naturaleza:checked~.filter-controls .label-naturaleza,
+#filter-playa:checked~.filter-controls .label-playa,
+#filter-gastronomico:checked~.filter-controls .label-gastronomico,
+#filter-religioso:checked~.filter-controls .label-religioso {
+  background-color: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+/* Filtering elements with CSS */
+#filter-cultural:checked~.masonry-grid .masonry-item:not([data-category~="cultural"]),
+#filter-naturaleza:checked~.masonry-grid .masonry-item:not([data-category~="naturaleza"]),
+#filter-playa:checked~.masonry-grid .masonry-item:not([data-category~="playa"]),
+#filter-gastronomico:checked~.masonry-grid .masonry-item:not([data-category~="gastronomico"]),
+#filter-religioso:checked~.masonry-grid .masonry-item:not([data-category~="religioso"]) {
+  display: none;
+}
+
+/* Robust CSS Columns Masonry */
+.masonry-grid {
+  column-count: 3;
+  column-gap: var(--spacing-6);
+  width: 100%;
+}
+
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: var(--spacing-6);
+  width: 100%;
+}
+
+@media (max-width: 900px) {
+  .masonry-grid {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 600px) {
+  .masonry-grid {
+    column-count: 1;
+  }
+}
+
+/* allow natural heights */
+.masonry-item .card {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.masonry-item .card-image-wrapper {
+  position: relative;
+  overflow: hidden;
+  height: auto;
+  /* Natural height */
+  aspect-ratio: unset;
+  /* Override components.css */
+}
+
+.masonry-item .card-img {
+  position: relative;
+  width: 100%;
+  height: auto;
+  /* Image dictates height */
+  display: block;
+  object-fit: cover;
+}
+
+/* Responsive Pricing Table */
+.pricing-section {
+  padding: var(--spacing-24) 0;
+  background-color: var(--color-bg-alt);
+  border-top: 1px solid var(--color-border);
+}
+
+.pricing-wrapper {
+  margin-top: var(--spacing-8);
+  overflow-x: auto;
+}
+
+.pricing-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--color-bg);
+  box-shadow: var(--shadow-md);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.pricing-table th,
+.pricing-table td {
+  padding: var(--spacing-4) var(--spacing-6);
+  text-align: left;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.pricing-table th {
+  background-color: var(--color-primary);
+  color: white;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.pricing-table tr:last-child td {
+  border-bottom: none;
+}
+
+.pricing-table tr:hover td {
+  background-color: rgba(var(--color-primary-rgb), 0.05);
+}
+
+.highlight-price {
+  color: var(--color-accent);
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+/* Mobile transform for table */
+@media (max-width: 768px) {
+
+  .pricing-table,
+  .pricing-table tbody,
+  .pricing-table tr,
+  .pricing-table td,
+  .pricing-table th {
+    display: block;
+  }
+
+  .pricing-table thead {
+    display: none;
+  }
+
+  .pricing-table tr {
+    margin-bottom: var(--spacing-6);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+  }
+
+  /* Restaurar el borde inferior de las filas móviles, excepto la última celda */
+  .pricing-table tr:last-child td {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .pricing-table tr td:last-child {
+    border-bottom: none;
+  }
+
+  .pricing-table td {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    text-align: right;
+    gap: 1rem;
+  }
+
+  .pricing-table td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    font-size: 0.85rem;
+  }
+}

@@ -1,0 +1,279 @@
+/* css/styles.css */
+@import url('variables.css');
+@import url('components.css');
+@import url('animations.css');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  transition: background-color var(--transition-normal), color var(--transition-normal);
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-serif);
+  line-height: 1.2;
+  font-weight: 700;
+  margin-bottom: var(--spacing-4);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color var(--transition-fast);
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+ul {
+  list-style: none;
+}
+
+/* Global Layout */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-4);
+}
+
+.section {
+  padding: var(--spacing-16) 0;
+  background-color: var(--color-bg);
+  position: relative;
+  z-index: 1;
+  scroll-margin-top: 80px;
+}
+
+/* Header & Navbar */
+.main-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: var(--color-bg);
+  opacity: 0.95;
+  border-bottom: 1px solid var(--color-border);
+  transition: all var(--transition-normal);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+}
+
+.logo {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.nav-menu {
+  display: flex;
+  gap: var(--spacing-6);
+  height: 100%;
+  align-items: center;
+}
+
+.nav-item {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.nav-link {
+  font-weight: 500;
+  color: var(--color-text);
+  padding: var(--spacing-2) 0;
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-primary);
+  transition: width var(--transition-normal);
+}
+
+.nav-link:hover::after,
+.nav-link:focus::after {
+  width: 100%;
+}
+
+.nav-link:hover {
+  color: var(--color-primary);
+}
+
+/* Mega Menu Hover usando Flex clasico */
+/* Este menu esta escondido e invisible, y solo se muestra usando el selector :hover al poner el ratón arriba del boton "Destinos" en CSS */
+.mega-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  width: 600px;
+  background-color: var(--color-bg);
+  box-shadow: var(--shadow-lg);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-6);
+  display: flex;
+  justify-content: space-around;
+  /* usamos flex clasico */
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-normal);
+  pointer-events: none;
+  border: 1px solid var(--color-border);
+}
+
+.nav-item:hover .mega-menu,
+.nav-item:focus-within .mega-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
+}
+
+.mega-menu-section h4 {
+  font-size: 1.1rem;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-4);
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: var(--spacing-2);
+}
+
+.mega-menu-list li {
+  margin-bottom: var(--spacing-2);
+}
+
+.mega-menu-list a {
+  display: block;
+  padding: var(--spacing-1);
+  color: var(--color-text-muted);
+  transition: all var(--transition-fast);
+}
+
+.mega-menu-list a:hover {
+  color: var(--color-accent);
+  padding-left: var(--spacing-2);
+}
+
+/* Header Actions */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4);
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  color: var(--color-text);
+  cursor: pointer;
+  font-size: 1.25rem;
+  padding: var(--spacing-2);
+  border-radius: var(--radius-full);
+  transition: background-color var(--transition-fast);
+}
+
+.theme-toggle:hover {
+  background-color: var(--color-bg-alt);
+}
+
+/* Footer con Flexbox */
+.main-footer {
+  background-color: var(--color-bg-alt);
+  padding: var(--spacing-16) 0 var(--spacing-8);
+  border-top: 1px solid var(--color-border);
+}
+
+.footer-grid {
+  display: flex;
+  flex-wrap: wrap;
+  /* Colapsa hacia abajo responsivamente */
+  gap: var(--spacing-8);
+  justify-content: space-between;
+  margin-bottom: var(--spacing-12);
+}
+
+.footer-col {
+  flex: 1;
+  min-width: 250px;
+  /* Al achicar pantalla colapsan porque ocupan minimo 250px */
+}
+
+.footer-col h3 {
+  font-size: 1.25rem;
+  margin-bottom: var(--spacing-4);
+}
+
+.newsletter-form {
+  display: flex;
+  margin-top: var(--spacing-4);
+}
+
+.newsletter-form input {
+  flex: 1;
+  padding: var(--spacing-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+.newsletter-form button {
+  padding: var(--spacing-3) var(--spacing-4);
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.newsletter-form button:hover {
+  background-color: var(--color-primary-dark);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: var(--spacing-8);
+  border-top: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+}

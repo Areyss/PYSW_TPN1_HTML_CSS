@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agencias | Lumina Viajes</title>
+  <meta name="description" content="Conoce a nuestras exclusivas agencias certificadas de turismo premium.">
+
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/agencias.css">
+
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <script>
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+  </script>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="main-header">
+    <div class="container">
+      <nav class="navbar">
+        <a href="../index.html" class="logo">
+          <i class='bx bxs-plane-alt'></i>
+          Lumina
+        </a>
+
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="../index.html" class="nav-link">Inicio</a></li>
+
+          <li class="nav-item">
+            <a href="destinos.html" class="nav-link" tabindex="0">Destinos <i class='bx bx-chevron-down'></i></a>
+            <!-- Mega Menú CSS Only -->
+            <div class="mega-menu">
+              <div class="mega-menu-section">
+                <h4><i class='bx bx-map-alt'></i> Por Continente</h4>
+                <ul class="mega-menu-list">
+                  <li><a href="destinos.html">Europa Clásica</a></li>
+                  <li><a href="destinos.html">América Latina</a></li>
+                  <li><a href="destinos.html">Asia Mística</a></li>
+                  <li><a href="destinos.html">África Salvaje</a></li>
+                </ul>
+              </div>
+              <div class="mega-menu-section">
+                <h4><i class='bx bx-star'></i> Populares</h4>
+                <ul class="mega-menu-list">
+                  <li><a href="#">París, Francia</a></li>
+                  <li><a href="#">Kioto, Japón</a></li>
+                  <li><a href="#">Cusco, Perú</a></li>
+                  <li><a href="#">Santorini, Grecia</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+
+          <li class="nav-item"><a href="agencias.html" class="nav-link"
+              style="color: var(--color-primary);">Agencias</a></li>
+          <li class="nav-item"><a href="precios.html" class="nav-link">Precios</a></li>
+          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+        </ul>
+
+        <div class="header-actions">
+          <button id="themeToggle" class="theme-toggle" aria-label="Cambiar tema" data-tooltip="Modo Oscuro/Claro">
+            <i class='bx bx-moon'></i>
+          </button>
+          <a href="contacto.html" class="btn btn-primary">Reserva Ahora</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Page Hero -->
+  <section class="agencias-hero">
+    <div class="container relative z-10">
+      <h1 class="page-title animate-fade-in">Nuestras Agencias Certificadas</h1>
+      <p class="page-subtitle animate-fade-in animate-delay-1">Trabajamos exclusivamente con las mejores operadoras
+        locales para garantizar experiencias irrepetibles, seguras y lujosas de inmersión total.</p>
+    </div>
+  </section>
+
+  <!-- Agencias Grid con Flip Cards -->
+  <main class="container">
+    <div class="agencias-grid">
+
+      <!-- Carta Flip 1 -->
+      <article class="flip-card reveal" tabindex="0">
+        <div class="flip-card-inner">
+
+          <!-- Lado Frontal -->
+          <div class="flip-card-front">
+            <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&q=80&w=600"
+              alt="Playa Europea" class="front-cover">
+            <img src="https://randomuser.me/api/portraits/women/40.jpg" alt="Logo de Agencia 1" class="front-logo">
+            <div class="front-content">
+              <h3>Odisea Tours</h3>
+              <p>Expertos en itinerarios personalizados para Europa Central y el Mediterráneo. Cultura, gastronomía e
+                historia entrelazada.</p>
+              <div class="badge-wrapper">
+                <span class="badge">Europa</span>
+                <span class="badge">Premium</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Lado de Atrás -->
+          <div class="flip-card-back">
+            <div class="stars">
+              <i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i
+                class='bx bxs-star'></i><i class='bx bxs-star-half'></i>
+            </div>
+            <p>"La excelencia al servicio del viajero. Reconocida como la agencia Gold 2025."</p>
+
+            <div class="stat-row">
+              <div class="stat-item">
+                <h4>850+</h4>
+                <span>Tours</span>
+              </div>
+              <div class="stat-item">
+                <h4>15</h4>
+                <span>Años Exp.</span>
+              </div>
+            </div>
+
+            <a href="precios.html" class="btn btn-outline" style="color: white; border-color: white;">Ver Paquetes</a>
+          </div>
+
+        </div>
+      </article>
+
+      <!-- Carta Flip 2 -->
+      <article class="flip-card reveal animate-delay-1" tabindex="0">
+        <div class="flip-card-inner">
+
+          <div class="flip-card-front">
+            <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=600"
+              alt="Montaña Asiática" class="front-cover">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Logo de Agencia 2" class="front-logo">
+            <div class="front-content">
+              <h3>Zenith Viajes</h3>
+              <p>Aventura y retiro espiritual en los enclaves más ocultos de Asia. Conexión total con la naturaleza y
+                sabiduría local.</p>
+              <div class="badge-wrapper">
+                <span class="badge">Asia</span>
+                <span class="badge">Eco Turismo</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="flip-card-back">
+            <div class="stars">
+              <i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i
+                class='bx bxs-star'></i><i class='bx bxs-star'></i>
+            </div>
+            <p>"Especialistas en transformar la forma en que ves el mundo natural. Pura paz."</p>
+
+            <div class="stat-row">
+              <div class="stat-item">
+                <h4>320+</h4>
+                <span>Senderos</span>
+              </div>
+              <div class="stat-item">
+                <h4>10</h4>
+                <span>Años Exp.</span>
+              </div>
+            </div>
+
+            <a href="precios.html" class="btn btn-outline" style="color: white; border-color: white;">Ver Paquetes</a>
+          </div>
+
+        </div>
+      </article>
+
+      <!-- Carta Flip 3 -->
+      <article class="flip-card reveal animate-delay-2" tabindex="0">
+        <div class="flip-card-inner">
+
+          <div class="flip-card-front">
+            <img src="../img/machupicchu.jpg" alt="Machu Picchu" class="front-cover">
+            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Logo de Agencia 3" class="front-logo">
+            <div class="front-content">
+              <h3>IntiTravel</h3>
+              <p>Dominamos toda la logística en Sudamérica y Centroamérica. Rutas exóticas sin preocuparte por
+                distancias o traslados.</p>
+              <div class="badge-wrapper">
+                <span class="badge">América Latina</span>
+                <span class="badge">All Inclusive</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="flip-card-back">
+            <div class="stars">
+              <i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i
+                class='bx bxs-star'></i><i class='bx bx-star'></i>
+            </div>
+            <p>"Seguridad, logística inteligente y resorts enclavados en selvas y montañas."</p>
+
+            <div class="stat-row">
+              <div class="stat-item">
+                <h4>1.2k+</h4>
+                <span>Familias</span>
+              </div>
+              <div class="stat-item">
+                <h4>22</h4>
+                <span>Años Exp.</span>
+              </div>
+            </div>
+
+            <a href="precios.html" class="btn btn-outline" style="color: white; border-color: white;">Ver Paquetes</a>
+          </div>
+
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <!-- Interaction Rating Widget CSS Only -->
+  <section class="review-section">
+    <div class="container reveal">
+      <div class="section-header">
+        <h2 class="section-title">Tu opinión da vida al ecosistema</h2>
+        <p style="margin-top: 1rem; color: var(--color-text-muted);">Califica tu última experiencia interactuando con
+          este componente sin necesidad de JavaScript.</p>
+      </div>
+
+      <div class="rating-widget">
+        <h3>¿Qué tal estuvo el viaje?</h3>
+
+        <div class="rating-interaction">
+          <!-- Inputs en reversa (5 a 1) para que funcione el truco de CSS sibling (~) combinator flex-direction row-reverse -->
+          <input type="radio" id="rate-5" name="rating" value="5">
+          <label for="rate-5" title="Excelente" tabindex="0"><i class='bx bxs-star'></i></label>
+
+          <input type="radio" id="rate-4" name="rating" value="4">
+          <label for="rate-4" title="Muy bueno" tabindex="0"><i class='bx bxs-star'></i></label>
+
+          <input type="radio" id="rate-3" name="rating" value="3">
+          <label for="rate-3" title="Bueno" tabindex="0"><i class='bx bxs-star'></i></label>
+
+          <input type="radio" id="rate-2" name="rating" value="2">
+          <label for="rate-2" title="Regular" tabindex="0"><i class='bx bxs-star'></i></label>
+
+          <input type="radio" id="rate-1" name="rating" value="1">
+          <label for="rate-1" title="Malo" tabindex="0"><i class='bx bxs-star'></i></label>
+
+          <div class="feedback-text">
+            <span class="t-5">¡Excelente servicio! Perfección absoluta. ⭐⭐⭐⭐⭐</span>
+            <span class="t-4">Fabuloso, muy satisfecho con la agencia. ⭐⭐⭐⭐</span>
+            <span class="t-3">Recomendable, pero pueden perfeccionar detalles. ⭐⭐⭐</span>
+            <span class="t-2">Regular. Existen ciertas cosas a mejorar. ⭐⭐</span>
+            <span class="t-1">Frustrante. Necesitamos hablar con soporte. ⭐</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col reveal">
+          <div class="logo" style="margin-bottom: 1rem;">
+            <i class='bx bxs-plane-alt'></i> Lumina
+          </div>
+          <p style="color: var(--color-text-muted); margin-bottom: 1.5rem;">Tu pasaporte a experiencias inolvidables.
+            Viaja con seguridad, estilo y confort.</p>
+          <div style="display: flex; gap: 1rem; font-size: 1.5rem; color: var(--color-primary);">
+            <a href="#" aria-label="Facebook"><i class='bx bxl-facebook-circle'></i></a>
+            <a href="#" aria-label="Twitter"><i class='bx bxl-twitter'></i></a>
+            <a href="#" aria-label="Instagram"><i class='bx bxl-instagram-alt'></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col reveal animate-delay-1">
+          <h3>Enlaces Rápidos</h3>
+          <ul style="color: var(--color-text-muted); display: flex; flex-direction: column; gap: 0.5rem;">
+            <li><a href="destinos.html">Destinos Populares</a></li>
+            <li><a href="agencias.html">Nuestras Agencias</a></li>
+            <li><a href="precios.html">Planes y Precios</a></li>
+            <li><a href="blog.html">Blog del Viajero</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col reveal animate-delay-2">
+          <h3>Newsletter</h3>
+          <p style="color: var(--color-text-muted); font-size: 0.9rem;">Suscríbete para recibir las mejores ofertas y
+            tips de viaje.</p>
+          <form class="newsletter-form" onsubmit="event.preventDefault();">
+            <input type="email" placeholder="Tu email" required>
+            <button type="submit" aria-label="Suscribirse"><i class='bx bx-send'></i></button>
+          </form>
+        </div>
+
+        <div class="footer-col reveal animate-delay-3">
+          <h3>Nosotros</h3>
+          <div class="footer-map"
+            style="margin-top: var(--spacing-4); border-radius: var(--radius-sm); overflow: hidden;">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115814.12353347094!2d-65.37255282498263!3d-24.185203395914652!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x941b0f4bc92042eb%3A0x63cdfb3fa3aa769a!2sSan%20Salvador%20de%20Jujuy%2C%20Jujuy!5e0!3m2!1ses-419!2sar!4v1700000000000!5m2!1ses-419!2sar"
+              width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Lumina Viajes. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+
+</html>

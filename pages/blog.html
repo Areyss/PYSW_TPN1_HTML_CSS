@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El Viajero - Blog | Lumina Viajes</title>
+  <meta name="description"
+    content="Lee increíbles crónicas y experiencias vividas por nuestros viajeros alrededor del globo.">
+
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/blog.css">
+
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <script>
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+  </script>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="main-header">
+    <div class="container">
+      <nav class="navbar">
+        <a href="../index.html" class="logo">
+          <i class='bx bxs-plane-alt'></i>
+          Lumina
+        </a>
+
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="../index.html" class="nav-link">Inicio</a></li>
+
+          <li class="nav-item">
+            <a href="destinos.html" class="nav-link" tabindex="0">Destinos <i class='bx bx-chevron-down'></i></a>
+            <!-- Mega Menú CSS Only -->
+            <div class="mega-menu">
+              <div class="mega-menu-section">
+                <h4><i class='bx bx-map-alt'></i> Por Continente</h4>
+                <ul class="mega-menu-list">
+                  <li><a href="destinos.html">Europa Clásica</a></li>
+                  <li><a href="destinos.html">América Latina</a></li>
+                  <li><a href="destinos.html">Asia Mística</a></li>
+                  <li><a href="destinos.html">África Salvaje</a></li>
+                </ul>
+              </div>
+              <div class="mega-menu-section">
+                <h4><i class='bx bx-star'></i> Populares</h4>
+                <ul class="mega-menu-list">
+                  <li><a href="#">París, Francia</a></li>
+                  <li><a href="#">Kioto, Japón</a></li>
+                  <li><a href="#">Cusco, Perú</a></li>
+                  <li><a href="#">Santorini, Grecia</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+
+          <li class="nav-item"><a href="agencias.html" class="nav-link">Agencias</a></li>
+          <li class="nav-item"><a href="precios.html" class="nav-link">Precios</a></li>
+          <li class="nav-item"><a href="blog.html" class="nav-link" style="color: var(--color-primary);">Blog</a></li>
+        </ul>
+
+        <div class="header-actions">
+          <button id="themeToggle" class="theme-toggle" aria-label="Cambiar tema" data-tooltip="Modo Oscuro/Claro">
+            <i class='bx bx-moon'></i>
+          </button>
+          <a href="contacto.html" class="btn btn-primary">Reserva Ahora</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Blog Content -->
+  <main class="container">
+    <section class="blog-header reveal">
+      <h1>La Brújula</h1>
+      <p>Crónicas Semanales para el Alma Viajera | Edición Vol. 42</p>
+    </section>
+
+    <!-- Newspaper Layout -->
+    <section class="newspaper-layout">
+
+      <!-- Featured Article -->
+      <article class="article-featured reveal">
+        <div class="article-featured-image">
+          <img src="https://images.unsplash.com/photo-1498307833015-e7b400441eb8?auto=format&fit=crop&q=80&w=1200"
+            alt="Aurora Boreal" class="article-image" loading="lazy">
+        </div>
+        <div class="article-featured-content">
+          <div class="article-meta">
+            <i class='bx bx-compass'></i> Escandinavia · 12 Abril, 2026
+          </div>
+          <h2>El Silencio Brillante: Persiguiendo Auroras en Tromsø</h2>
+
+          <!-- Drop Cap and Column CSS Native Support -->
+          <div class="multi-column-text">
+            <p class="drop-cap">Escribir sobre el norte profundo no es tarea fácil. La primera vez que el cielo se abre
+              en un telón esmeralda te quedas sin palabras, literalmente. Tromsø, ubicada en el extremo norte de
+              Noruega, es conocida mundialmente no solo por sus paisajes prístinos, sino por ofrecer la garantía casi
+              total de que verás las Luces del Norte si permaneces tres noches despejadas seguidas. Las temperaturas
+              marcan -15°C pero la emoción calienta la piel.</p>
+            <p>A pesar de la popularidad actual, todavía existen senderos alejados del turismo masivo. Nos encontramos
+              marchando alrededor de un fuego a las orillas de un lago congelado, donde el crujido de la nieve bajo
+              nuestras raquetas fue la banda sonora exclusiva por días enteros. Cuando apareció la Aurora, comenzó
+              tímida: un ligero velo blanco en el horizonte que de repente explotó pintando la noche helada.</p>
+          </div>
+
+        </div>
+      </article>
+
+      <div class="newspaper-divider reveal animate-delay-1"></div>
+
+      <!-- Secondary Articles -->
+      <article class="article-secondary reveal">
+        <img src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&q=80&w=600"
+          alt="Comida Italiana" class="article-secondary-img" loading="lazy">
+        <div class="article-meta">Gastronomía · 08 Mar, 2026</div>
+        <h3>Toscana En Un Bocado: El secreto perdido de Chianti</h3>
+        <p>Una incursión directa con chefs locales revela la simplicidad engañosa detrás de los platos más aclamados del
+          mundo. Mucho aceite de oliva, tomates frescos y paciencia milenaria.</p>
+      </article>
+
+      <article class="article-secondary reveal animate-delay-1">
+        <img src="https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&q=80&w=600"
+          alt="Mercado Turco" class="article-secondary-img" loading="lazy">
+        <div class="article-meta">Cultura · 21 Feb, 2026</div>
+        <h3>El Gran Bazar: Dejándote perder en el laberinto de Estambul</h3>
+        <p>Con más de cuatro mil tiendas, es imposible seguir un mapa. La mejor estrategia es dejar los dispositivos,
+          seguir el aroma de las especias y negociar con sonrisas sobre alfombras persas.</p>
+      </article>
+
+      <article class="article-secondary reveal animate-delay-2">
+        <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&q=80&w=600"
+          alt="Playa del Carmen" class="article-secondary-img" loading="lazy">
+        <div class="article-meta">Guías · 10 Ene, 2026</div>
+        <h3>Riviera Secreta: 5 Cenotes alejados de las multitudes</h3>
+        <p>El paraíso existe oculto bajo la península de Yucatán. Recopilación cartográfica exclusiva de sumideros de
+          agua cristalina sin rastro alguno de estrés ni afluencia masiva.</p>
+      </article>
+
+    </section>
+
+    <!-- Synthetic Comments Section  -->
+    <section class="comments-section reveal">
+      <h3>Debate Viajero (4 Comentarios)</h3>
+
+      <div class="comment-list">
+
+        <!-- Comment 1 -->
+        <div class="comment-item">
+          <!-- El avatar con CSS degradados y radius 50% -->
+          <div class="avatar-placeholder bg-gradient-1">L</div>
+          <div class="comment-content">
+            <h5>Laura Martínez</h5>
+            <span>Hace 2 horas</span>
+            <p>Excelente artículo. Estuvimos en Tromsø el año pasado con Lumina y nos llevaron a una granja remota Sami,
+              lo que hizo la experiencia mágica. ¡El frío vale totalmente la pena por esas luces!</p>
+          </div>
+        </div>
+
+        <!-- Comment 2 -->
+        <div class="comment-item">
+          <div class="avatar-placeholder bg-gradient-2">A</div>
+          <div class="comment-content">
+            <h5>Alan Domínguez</h5>
+            <span>Hace 5 horas</span>
+            <p>Anotaré esos 5 Cenotes escondidos de inmediato en mi diario. Siempre me frustró visitar lugares masivos
+              en Tulum, esto es lo que busco.</p>
+          </div>
+        </div>
+
+        <!-- Comment 3 -->
+        <div class="comment-item">
+          <div class="avatar-placeholder bg-gradient-3">SC</div>
+          <div class="comment-content">
+            <h5>Sofia Castulo</h5>
+            <span>Ayer</span>
+            <p>El Gran Bazar es de locos en serio. Me perdí por 4 horas y terminé tomando té de manzana con un vendedor
+              de lámparas maravilloso.</p>
+          </div>
+        </div>
+
+        <!-- Comment 4 -->
+        <div class="comment-item">
+          <div class="avatar-placeholder bg-gradient-4">P</div>
+          <div class="comment-content">
+            <h5>Pablo Rossi</h5>
+            <span>Ayer</span>
+            <p>Gran foto principal. ¿Qué cámara recomiendan utilizar a temperaturas tan bajas sin que muera la batería
+              de litio?</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="main-footer" style="margin-top: 100px;">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col reveal">
+          <div class="logo" style="margin-bottom: 1rem;">
+            <i class='bx bxs-plane-alt'></i> Lumina
+          </div>
+          <p style="color: var(--color-text-muted); margin-bottom: 1.5rem;">Tu pasaporte a experiencias inolvidables.
+            Viaja con seguridad, estilo y confort.</p>
+          <div style="display: flex; gap: 1rem; font-size: 1.5rem; color: var(--color-primary);">
+            <a href="#" aria-label="Facebook"><i class='bx bxl-facebook-circle'></i></a>
+            <a href="#" aria-label="Twitter"><i class='bx bxl-twitter'></i></a>
+            <a href="#" aria-label="Instagram"><i class='bx bxl-instagram-alt'></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col reveal animate-delay-1">
+          <h3>Enlaces Rápidos</h3>
+          <ul style="color: var(--color-text-muted); display: flex; flex-direction: column; gap: 0.5rem;">
+            <li><a href="destinos.html">Destinos Populares</a></li>
+            <li><a href="agencias.html">Nuestras Agencias</a></li>
+            <li><a href="precios.html">Planes y Precios</a></li>
+            <li><a href="blog.html">Blog del Viajero</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col reveal animate-delay-2">
+          <h3>Newsletter</h3>
+          <p style="color: var(--color-text-muted); font-size: 0.9rem;">Suscríbete para recibir las mejores ofertas y
+            tips de viaje.</p>
+          <form class="newsletter-form" onsubmit="event.preventDefault();">
+            <input type="email" placeholder="Tu email" required>
+            <button type="submit" aria-label="Suscribirse"><i class='bx bx-send'></i></button>
+          </form>
+        </div>
+
+        <div class="footer-col reveal animate-delay-3">
+          <h3>Nosotros</h3>
+          <div class="footer-map"
+            style="margin-top: var(--spacing-4); border-radius: var(--radius-sm); overflow: hidden;">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115814.12353347094!2d-65.37255282498263!3d-24.185203395914652!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x941b0f4bc92042eb%3A0x63cdfb3fa3aa769a!2sSan%20Salvador%20de%20Jujuy%2C%20Jujuy!5e0!3m2!1ses-419!2sar!4v1700000000000!5m2!1ses-419!2sar"
+              width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Lumina Viajes. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+
+</html>

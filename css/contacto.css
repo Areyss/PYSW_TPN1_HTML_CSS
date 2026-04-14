@@ -1,0 +1,313 @@
+/* css/contacto.css */
+
+.contact-section {
+  padding: var(--spacing-24) 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-16);
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .contact-section {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Contact Info Styles */
+.contact-info {
+  padding-right: var(--spacing-8);
+}
+
+.contact-info h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: var(--spacing-4);
+}
+
+.contact-info>p {
+  color: var(--color-text-muted);
+  font-size: 1.1rem;
+  margin-bottom: var(--spacing-8);
+}
+
+.contact-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-6);
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-4);
+}
+
+.contact-icon {
+  width: 50px;
+  height: 50px;
+  background-color: var(--color-bg-alt);
+  color: var(--color-primary);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  border: 1px solid var(--color-border);
+  transition: all var(--transition-fast);
+}
+
+.contact-item:hover .contact-icon {
+  background-color: var(--color-primary);
+  color: white;
+  transform: scale(1.1);
+  box-shadow: var(--shadow-md);
+}
+
+.contact-text h4 {
+  margin-bottom: 0.2rem;
+  font-family: var(--font-sans);
+}
+
+.contact-text p {
+  color: var(--color-text-muted);
+}
+
+/* Form Styles */
+.contact-form-card {
+  background-color: var(--color-bg);
+  padding: var(--spacing-8);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--color-border);
+}
+
+.form-group {
+  margin-bottom: var(--spacing-6);
+  position: relative;
+}
+
+.form-control {
+  width: 100%;
+  padding: var(--spacing-4) var(--spacing-4) var(--spacing-4);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: inherit;
+  font-size: 1rem;
+  transition: all var(--transition-fast);
+  outline: none;
+}
+
+textarea.form-control {
+  resize: vertical;
+  min-height: 150px;
+}
+
+/* Esconder el placeholder real para usar el label flotante */
+.form-control::placeholder {
+  color: transparent;
+}
+
+.form-label {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  transform: translateY(-50%);
+  color: var(--color-text-muted);
+  transition: all var(--transition-fast);
+  pointer-events: none;
+  background-color: var(--color-bg);
+  padding: 0 0.5rem;
+}
+
+textarea.form-control~.form-label {
+  top: 2rem;
+}
+
+/* Floating Label Logic: Activo si tiene foco O si no muestra el placeholder (es decir, tiene texto) */
+.form-control:focus~.form-label,
+.form-control:not(:placeholder-shown)~.form-label {
+  top: 0;
+  left: 0.8rem;
+  font-size: 0.85rem;
+  color: var(--color-primary);
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  transform: translateY(-50%);
+}
+
+.form-control:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.1);
+}
+
+/* Native CSS Validation Styles */
+/* Verde para :valid cuando ya se ha ingresado texto */
+.form-control:not(:placeholder-shown):valid {
+  border-color: #10b981;
+}
+
+/* Rojo para :invalid cuando ya se ha ingresado texto */
+.form-control:not(:placeholder-shown):invalid {
+  border-color: #ef4444;
+}
+
+/* Status Icons styling */
+.status-icon {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+  font-size: 1.2rem;
+}
+
+textarea.form-control~.status-icon {
+  top: 2rem;
+}
+
+.icon-valid {
+  color: #10b981;
+}
+
+.icon-invalid {
+  color: #ef4444;
+}
+
+.form-control:not(:placeholder-shown):valid~.icon-valid {
+  opacity: 1;
+}
+
+.form-control:not(:placeholder-shown):invalid~.icon-invalid {
+  opacity: 1;
+}
+
+/* Dynamic Error Text Displayed ONLY when invalid */
+.error-msg {
+  display: block;
+  font-size: 0.8rem;
+  color: #ef4444;
+  margin-top: 0.5rem;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all var(--transition-normal);
+}
+
+.form-control:not(:placeholder-shown):invalid~.error-msg {
+  opacity: 1;
+  max-height: 20px;
+}
+
+/* Submit & Spinner Fake Action */
+.btn-submit {
+  width: 100%;
+  padding: var(--spacing-4);
+  font-size: 1.1rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.spinner {
+  display: none;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.btn-submit:active .btn-text {
+  opacity: 0.8;
+}
+
+.btn-submit:active .spinner {
+  display: block;
+}
+
+/* Modal - Triggered by Form Action or Anchor */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0);
+  backdrop-filter: blur(0px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-normal);
+  pointer-events: none;
+}
+
+.modal-overlay:target {
+  opacity: 1;
+  visibility: visible;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  pointer-events: auto;
+}
+
+.modal-content {
+  background-color: var(--color-bg);
+  padding: var(--spacing-12) var(--spacing-8);
+  border-radius: var(--radius-lg);
+  max-width: 450px;
+  width: 90%;
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+  transform: translateY(50px) scale(0.9);
+  transition: transform var(--transition-normal);
+  border: 1px solid var(--color-border);
+  position: relative;
+}
+
+.modal-overlay:target .modal-content {
+  transform: translateY(0) scale(1);
+}
+
+.modal-icon {
+  width: 80px;
+  height: 80px;
+  background-color: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  margin: 0 auto var(--spacing-6);
+  animation: pulse 2s infinite;
+}
+
+.modal-content h3 {
+  font-size: 2rem;
+  margin-bottom: var(--spacing-2);
+}
+
+.modal-content p {
+  color: var(--color-text-muted);
+  margin-bottom: var(--spacing-8);
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  color: var(--color-text-muted);
+  cursor: pointer;
+}
+
+.modal-close-btn:hover {
+  color: var(--color-text);
+}

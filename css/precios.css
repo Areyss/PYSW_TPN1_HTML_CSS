@@ -1,0 +1,228 @@
+/* css/precios.css */
+
+.precios-hero {
+  padding-top: 140px;
+  padding-bottom: var(--spacing-16);
+  background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
+  color: white;
+  text-align: center;
+}
+
+.page-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: var(--spacing-4);
+  font-family: var(--font-serif);
+}
+
+.page-subtitle {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto;
+  opacity: 0.9;
+}
+
+/* Planes de Suscripción Flex Grid */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--spacing-8);
+  margin-top: var(--spacing-12);
+  align-items: center; /* Permite que la tarjeta del medio pueda apilar altura */
+}
+
+@media (max-width: 1024px) {
+  .pricing-grid {
+    align-items: stretch;
+  }
+}
+
+.pricing-card {
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-8);
+  text-align: center;
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.pricing-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-primary);
+}
+
+/* Tarjeta Destacada "Popular" */
+.pricing-card.popular {
+  transform: scale(1.05); 
+  border: 2px solid var(--color-accent);
+  box-shadow: var(--shadow-md);
+  background-color: var(--color-bg);
+  z-index: 5;
+}
+
+.pricing-card.popular:hover {
+  transform: scale(1.05) translateY(-10px);
+  box-shadow: 0 15px 30px rgba(245, 158, 11, 0.15);
+}
+
+/* Etiqueta Esquinera Usando CSS 2D Transforms */
+.popular-badge {
+  position: absolute;
+  top: 1.5rem;
+  right: -2.5rem;
+  background-color: var(--color-accent);
+  color: white;
+  padding: var(--spacing-1) var(--spacing-8);
+  transform: rotate(45deg);
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.pricing-header h3 {
+  font-size: 1.8rem;
+  margin-bottom: var(--spacing-2);
+  color: var(--color-text);
+}
+
+.pricing-header p {
+  color: var(--color-text-muted);
+}
+
+.price {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  margin: var(--spacing-6) 0;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+}
+
+.pricing-card.popular .price {
+  color: var(--color-accent);
+}
+
+.price span {
+  font-size: 1.2rem;
+  color: var(--color-text-muted);
+  font-weight: normal;
+}
+
+.pricing-features {
+  text-align: left;
+  margin: var(--spacing-6) 0 var(--spacing-8);
+  flex-grow: 1;
+}
+
+.pricing-features li {
+  margin-bottom: var(--spacing-4);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  color: var(--color-text);
+}
+
+.pricing-features li.disabled {
+  color: var(--color-border);
+  text-decoration: line-through;
+}
+
+.pricing-features i {
+  color: #10b981; 
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.pricing-features li.disabled i {
+  color: #ef4444; /* Rojo para features deshabilitadas */
+}
+
+/* Tweak para Tooltips interactivos de css/components.css 
+   Los tooltips son generados con atributos data-tooltip y manejados nativamente */
+.info-icon {
+  color: var(--color-text-muted);
+  cursor: help;
+  font-size: 1.1rem;
+  transition: color var(--transition-fast);
+}
+
+.info-icon:hover {
+  color: var(--color-primary);
+}
+
+/* Sección de Comparación Avanzada (Tabla) */
+.comparativa-section {
+  padding: var(--spacing-24) 0;
+  background-color: var(--color-bg-alt);
+  border-top: 1px solid var(--color-border);
+}
+
+.comparativa-wrapper {
+  overflow-x: auto;
+  margin-top: var(--spacing-12);
+}
+
+.tabla-comparativa {
+  width: 100%;
+  min-width: 800px; 
+  border-collapse: separate;
+  border-spacing: 0;
+  background-color: var(--color-bg);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-border);
+}
+
+.tabla-comparativa th, 
+.tabla-comparativa td {
+  padding: var(--spacing-4);
+  text-align: center;
+  border-bottom: 1px solid var(--color-border);
+  border-right: 1px solid var(--color-border);
+}
+
+.tabla-comparativa tr:last-child td {
+  border-bottom: none;
+}
+
+.tabla-comparativa th:last-child, 
+.tabla-comparativa td:last-child {
+  border-right: none;
+}
+
+/* Efecto hover sofisticado para tablas */
+.tabla-comparativa tbody tr {
+  transition: all var(--transition-fast);
+}
+
+.tabla-comparativa tbody tr:hover td {
+  background-color: rgba(var(--color-primary-rgb), 0.05);
+  box-shadow: inset 0 2px 0 var(--color-primary), inset 0 -2px 0 var(--color-primary);
+}
+
+/* Para iluminar la columna (difícil sin JS, pero posible en TD individual) */
+.tabla-comparativa th.celda-texto,
+.tabla-comparativa td.celda-texto {
+  text-align: left;
+  font-weight: 600;
+  width: 30%;
+  color: var(--color-text);
+}
+
+.tabla-comparativa th {
+  background-color: var(--color-bg-alt);
+  font-size: 1.1rem;
+  padding: var(--spacing-6) var(--spacing-4);
+}
+
+.check-icon { color: #10b981; font-size: 1.5rem; }
+.cross-icon { color: #ef4444; font-size: 1.5rem; }

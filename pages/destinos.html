@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Destinos | Lumina Viajes</title>
+  <meta name="description" content="Explora nuestra exclusiva colección de destinos alrededor del mundo.">
+
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/destinos.css">
+
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <script>
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+  </script>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="main-header">
+    <div class="container">
+      <nav class="navbar">
+        <a href="../index.html" class="logo">
+          <i class='bx bxs-plane-alt'></i>
+          Lumina
+        </a>
+
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="../index.html" class="nav-link">Inicio</a></li>
+
+          <li class="nav-item">
+            <a href="destinos.html" class="nav-link" style="color: var(--color-primary);" tabindex="0">Destinos <i
+                class='bx bx-chevron-down'></i></a>
+            <!-- Mega Menú CSS Only -->
+            <div class="mega-menu">
+              <div class="mega-menu-section">
+                <h4><i class='bx bx-map-alt'></i> Por Continente</h4>
+                <ul class="mega-menu-list">
+                  <li><a href="#">Europa Clásica</a></li>
+                  <li><a href="#">América Latina</a></li>
+                  <li><a href="#">Asia Mística</a></li>
+                  <li><a href="#">África Salvaje</a></li>
+                </ul>
+              </div>
+              <div class="mega-menu-section">
+                <h4><i class='bx bx-star'></i> Populares</h4>
+                <ul class="mega-menu-list">
+                  <li><a href="#">París, Francia</a></li>
+                  <li><a href="#">Kioto, Japón</a></li>
+                  <li><a href="#">Cusco, Perú</a></li>
+                  <li><a href="#">Santorini, Grecia</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+
+          <li class="nav-item"><a href="agencias.html" class="nav-link">Agencias</a></li>
+          <li class="nav-item"><a href="precios.html" class="nav-link">Precios</a></li>
+          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+        </ul>
+
+        <div class="header-actions">
+          <button id="themeToggle" class="theme-toggle" aria-label="Cambiar tema" data-tooltip="Modo Oscuro/Claro">
+            <i class='bx bx-moon'></i>
+          </button>
+          <a href="contacto.html" class="btn btn-primary">Reserva Ahora</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="container relative z-10">
+      <h1 class="page-title animate-fade-in">Explora Nuestras Rutas</h1>
+      <p class="page-subtitle animate-fade-in animate-delay-1">Filtra por continente y enamórate de rincones escondidos
+        y joyas clásicas preparadas a tu medida.</p>
+    </div>
+  </section>
+
+  <!-- Masonry & Filters Section -->
+  <section class="section">
+    <div class="container filter-wrapper">
+
+      <!-- CSS-only Filter System -->
+      <input type="radio" name="dest-filter" id="filter-all" class="filter-input" checked>
+      <input type="radio" name="dest-filter" id="filter-cultural" class="filter-input">
+      <input type="radio" name="dest-filter" id="filter-naturaleza" class="filter-input">
+      <input type="radio" name="dest-filter" id="filter-playa" class="filter-input">
+      <input type="radio" name="dest-filter" id="filter-gastronomico" class="filter-input">
+      <input type="radio" name="dest-filter" id="filter-religioso" class="filter-input">
+
+      <div class="filter-controls reveal">
+        <label for="filter-all" class="filter-btn label-all">Todos</label>
+        <label for="filter-cultural" class="filter-btn label-cultural">Cultural</label>
+        <label for="filter-naturaleza" class="filter-btn label-naturaleza">Naturaleza</label>
+        <label for="filter-playa" class="filter-btn label-playa">Sol y Playa</label>
+        <label for="filter-gastronomico" class="filter-btn label-gastronomico">Gastronómico</label>
+        <label for="filter-religioso" class="filter-btn label-religioso">Religioso</label>
+      </div>
+
+      <!-- Masonry Grid -->
+      <div class="masonry-grid reveal animate-delay-1">
+
+        <!-- Item 1 -->
+        <article class="masonry-item reveal" data-category="cultural gastronomico">
+          <div class="card">
+            <div class="card-image-wrapper">
+              <img src="https://images.unsplash.com/photo-1549144511-f099e773c147?auto=format&fit=crop&q=80&w=600"
+                alt="París" class="card-img" loading="lazy">
+              <div class="card-overlay">
+                <span class="card-overlay-title">París, Francia</span>
+              </div>
+            </div>
+            <div class="card-content">
+              <div class="card-content-header">
+                <span class="stars stars-inline"><i class='bx bxs-star'></i> 4.9</span>
+                <span class="card-price">$1,400</span>
+              </div>
+              <p class="card-desc">La ciudad de la luz te espera con su arte, historia y gastronomía inigualable.</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 2 -->
+        <article class="masonry-item reveal" data-category="cultural tech">
+          <div class="card">
+            <div class="card-image-wrapper">
+              <img src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&q=80&w=600"
+                alt="Tokio" class="card-img" loading="lazy">
+              <div class="card-overlay">
+                <span class="card-overlay-title">Tokio, Japón</span>
+              </div>
+            </div>
+            <div class="card-content">
+              <div class="card-content-header">
+                <span class="stars stars-inline"><i class='bx bxs-star'></i> 4.8</span>
+                <span class="card-price">$2,100</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 3 -->
+        <article class="masonry-item reveal" data-category="cultural naturaleza">
+          <div class="card">
+            <div class="card-image-wrapper">
+              <img src="../img/machupicchu.jpg" alt="Machu Picchu" class="card-img" loading="lazy">
+              <div class="card-overlay">
+                <span class="card-overlay-title">Cusco, Perú</span>
+              </div>
+            </div>
+            <div class="card-content">
+              <div class="card-content-header">
+                <span class="stars stars-inline"><i class='bx bxs-star'></i> 5.0</span>
+                <span class="card-price">$850</span>
+              </div>
+              <p class="card-desc">Descubre los misterios del antiguo imperio Inca.</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 4 -->
+        <article class="masonry-item reveal" data-category="cultural">
+          <div class="card">
+            <div class="card-image-wrapper">
+              <img src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&q=80&w=600"
+                alt="Venecia" class="card-img" loading="lazy">
+              <div class="card-overlay">
+                <span class="card-overlay-title">Venecia, Italia</span>
+              </div>
+            </div>
+            <div class="card-content">
+              <div class="card-content-header">
+                <span class="stars stars-inline"><i class='bx bxs-star'></i> 4.7</span>
+                <span class="card-price">$1,600</span>
+              </div>
+              <p class="card-desc">Cruza sus mágicos canales en góndola.</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 5 -->
+        <article class="masonry-item reveal" data-category="cultural religioso">
+          <div class="card">
+            <div class="card-image-wrapper">
+              <img src="https://images.unsplash.com/photo-1539650116574-8efeb43e2750?auto=format&fit=crop&q=80&w=600"
+                alt="Egipto" class="card-img" loading="lazy">
+              <div class="card-overlay">
+                <span class="card-overlay-title">El Cairo, Egipto</span>
+              </div>
+            </div>
+            <div class="card-content">
+              <div class="card-content-header">
+                <span class="stars stars-inline"><i class='bx bxs-star'></i> 4.6</span>
+                <span class="card-price">$1,100</span>
+              </div>
+              <p class="card-desc">Maravíllate ante la grandeza eterna de las Pirámides de Giza y el Nilo.</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 6 -->
+        <article class="masonry-item reveal" data-category="cultural playa">
+          <div class="card">
+            <div class="card-image-wrapper">
+              <!-- portrait image -->
+              <img src="https://images.unsplash.com/photo-1510006851064-e6056cd0e3a8?auto=format&fit=crop&q=80&w=600"
+                alt="Rio" class="card-img" loading="lazy">
+              <div class="card-overlay">
+                <span class="card-overlay-title">Río, Brasil</span>
+              </div>
+            </div>
+            <div class="card-content">
+              <div class="card-content-header">
+                <span class="stars stars-inline"><i class='bx bxs-star'></i> 4.5</span>
+                <span class="card-price">$750</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 7 -->
+        <article class="masonry-item reveal" data-category="naturaleza playa">
+          <div class="card">
+            <div class="card-image-wrapper">
+              <!-- tall image-->
+              <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&q=80&w=600"
+                alt="Bali" class="card-img" loading="lazy">
+              <div class="card-overlay">
+                <span class="card-overlay-title">Bali, Indonesia</span>
+              </div>
+            </div>
+            <div class="card-content">
+              <div class="card-content-header">
+                <span class="stars stars-inline"><i class='bx bxs-star'></i> 4.8</span>
+                <span class="card-price">$1,350</span>
+              </div>
+              <p class="card-desc">Playas paradisíacas y templos exóticos rodeados de selva.</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 8 -->
+        <article class="masonry-item reveal" data-category="naturaleza">
+          <div class="card">
+            <div class="card-image-wrapper">
+              <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&q=80&w=600"
+                alt="Yellowstone" class="card-img" loading="lazy">
+              <div class="card-overlay">
+                <span class="card-overlay-title">Yellowstone, USA</span>
+              </div>
+            </div>
+            <div class="card-content">
+              <div class="card-content-header">
+                <span class="stars stars-inline"><i class='bx bxs-star'></i> 4.9</span>
+                <span class="card-price">$800</span>
+              </div>
+              <p class="card-desc">Géiseres impresionantes y vida silvestre asombrosa.</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 9 -->
+        <article class="masonry-item reveal" data-category="religioso cultural">
+          <div class="card">
+            <div class="card-image-wrapper">
+              <img src="https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&q=80&w=600"
+                alt="India" class="card-img" loading="lazy">
+              <div class="card-overlay">
+                <span class="card-overlay-title">Taj Mahal, India</span>
+              </div>
+            </div>
+            <div class="card-content">
+              <div class="card-content-header">
+                <span class="stars stars-inline"><i class='bx bxs-star'></i> 4.7</span>
+                <span class="card-price">$1,500</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 10 -->
+        <article class="masonry-item reveal" data-category="gastronomico">
+          <div class="card">
+            <div class="card-image-wrapper">
+              <img src="../img/viaje-tailandia.jpg" alt="Bangkok" class="card-img" loading="lazy">
+              <div class="card-overlay">
+                <span class="card-overlay-title">Bangkok, Tailandia</span>
+              </div>
+            </div>
+            <div class="card-content">
+              <div class="card-content-header">
+                <span class="stars stars-inline"><i class='bx bxs-star'></i> 4.5</span>
+                <span class="card-price">$900</span>
+              </div>
+              <p class="card-desc">Descubre sabores auténticos en vibrantes mercados callejeros.</p>
+            </div>
+          </div>
+        </article>
+
+      </div> <!-- /masonry-grid -->
+    </div>
+  </section>
+
+  <!-- Responsive Pricing Component -->
+  <section class="pricing-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2 class="section-title">Comparador de Paquetes</h2>
+        <p style="margin-top: 1rem; color: var(--color-text-muted);">Tablas 100% responsivas para facilitar tu decisión.
+        </p>
+      </div>
+
+      <div class="pricing-wrapper reveal animate-delay-1">
+        <table class="pricing-table">
+          <thead>
+            <tr>
+              <th>Destino</th>
+              <th>Días / Noches</th>
+              <th>Alojamiento</th>
+              <th data-tooltip="Comidas, Tours y Transportes locales incluidos">Incluye <i
+                  class='bx bx-info-circle'></i></th>
+              <th>Precio (USD)</th>
+              <th>Acción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="Destino">Europa Mágica (Multi-país)</td>
+              <td data-label="Duración">15 Días / 14 Noches</td>
+              <td data-label="Alojamiento"><span>Hoteles 4 <i class='bx bxs-star' style="color:#fbbf24;"></i></span>
+              </td>
+              <td data-label="Incluye">Desayunos, Trenes internos, Guía</td>
+              <td data-label="Precio" class="highlight-price">$2,500</td>
+              <td data-label="Acción"><a href="contacto.html" class="btn btn-outline"
+                  style="padding: 0.5rem 1rem;">Cotizar</a></td>
+            </tr>
+            <tr>
+              <td data-label="Destino">Safari Kenia & Tanzania</td>
+              <td data-label="Duración">10 Días / 9 Noches</td>
+              <td data-label="Alojamiento"><span>Lodges Premium 5 <i class='bx bxs-star'
+                    style="color:#fbbf24;"></i></span></td>
+              <td data-label="Incluye">All Inclusive, Safaris en 4x4, Vuelos Int.</td>
+              <td data-label="Precio" class="highlight-price">$3,800</td>
+              <td data-label="Acción"><a href="contacto.html" class="btn btn-outline"
+                  style="padding: 0.5rem 1rem;">Cotizar</a></td>
+            </tr>
+            <tr>
+              <td data-label="Destino">Caribe Express (Riviera Maya)</td>
+              <td data-label="Duración">7 Días / 6 Noches</td>
+              <td data-label="Alojamiento"><span>Resort 5 <i class='bx bxs-star' style="color:#fbbf24;"></i></span></td>
+              <td data-label="Incluye">All Inclusive, Traslados, Actividades Acuáticas</td>
+              <td data-label="Precio" class="highlight-price">$950</td>
+              <td data-label="Acción"><a href="contacto.html" class="btn btn-outline"
+                  style="padding: 0.5rem 1rem;">Cotizar</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col reveal">
+          <div class="logo" style="margin-bottom: 1rem;">
+            <i class='bx bxs-plane-alt'></i> Lumina
+          </div>
+          <p style="color: var(--color-text-muted); margin-bottom: 1.5rem;">Tu pasaporte a experiencias inolvidables.
+            Viaja con seguridad, estilo y confort.</p>
+          <div style="display: flex; gap: 1rem; font-size: 1.5rem; color: var(--color-primary);">
+            <a href="#" aria-label="Facebook"><i class='bx bxl-facebook-circle'></i></a>
+            <a href="#" aria-label="Twitter"><i class='bx bxl-twitter'></i></a>
+            <a href="#" aria-label="Instagram"><i class='bx bxl-instagram-alt'></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col reveal animate-delay-1">
+          <h3>Enlaces Rápidos</h3>
+          <ul style="color: var(--color-text-muted); display: flex; flex-direction: column; gap: 0.5rem;">
+            <li><a href="destinos.html">Destinos Populares</a></li>
+            <li><a href="agencias.html">Nuestras Agencias</a></li>
+            <li><a href="precios.html">Planes y Precios</a></li>
+            <li><a href="blog.html">Blog del Viajero</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col reveal animate-delay-2">
+          <h3>Newsletter</h3>
+          <p style="color: var(--color-text-muted); font-size: 0.9rem;">Suscríbete para recibir las mejores ofertas y
+            tips de viaje.</p>
+          <form class="newsletter-form" onsubmit="event.preventDefault();">
+            <input type="email" placeholder="Tu email" required>
+            <button type="submit" aria-label="Suscribirse"><i class='bx bx-send'></i></button>
+          </form>
+        </div>
+
+        <div class="footer-col reveal animate-delay-3">
+          <h3>Nosotros</h3>
+          <div class="footer-map"
+            style="margin-top: var(--spacing-4); border-radius: var(--radius-sm); overflow: hidden;">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115814.12353347094!2d-65.37255282498263!3d-24.185203395914652!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x941b0f4bc92042eb%3A0x63cdfb3fa3aa769a!2sSan%20Salvador%20de%20Jujuy%2C%20Jujuy!5e0!3m2!1ses-419!2sar!4v1700000000000!5m2!1ses-419!2sar"
+              width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Lumina Viajes. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+
+</html>

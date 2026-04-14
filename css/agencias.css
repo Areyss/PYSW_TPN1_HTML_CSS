@@ -1,0 +1,319 @@
+/* css/agencias.css */
+
+/* Hero para página de Agencias */
+.agencias-hero {
+  padding-top: 140px;
+  padding-bottom: var(--spacing-16);
+  background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
+  color: white;
+  text-align: center;
+  position: relative;
+}
+
+.agencias-hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background: var(--color-bg);
+  clip-path: ellipse(50% 100% at 50% 100%);
+}
+
+.page-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: var(--spacing-4);
+  font-family: var(--font-serif);
+}
+
+.page-subtitle {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto;
+  padding-bottom: 40px;
+  opacity: 0.9;
+}
+
+/* Tarjetas 3D (Flip Cards) */
+.agencias-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--spacing-12);
+  padding: var(--spacing-12) 0;
+}
+
+/* Contenedor principal que provee la perspectiva 3D */
+.flip-card {
+  background-color: transparent;
+  height: 480px;
+  perspective: 1200px;
+  /* Determina la profundidad del efecto 3D */
+}
+
+/* El elemento interior que sufre la rotación real */
+/* EXPLICACION: "transform-style: preserve-3d" es la propiedad mágica que avisa al navegador que los hijos vivirán en un entorno 3D y no plano. */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+  /* Permite a los hijos tener su propia posición tridimensional */
+  box-shadow: var(--shadow-md);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+}
+
+/* Hover sobre la tarjeta padre gira el niño a 180° */
+/* EXPLICACION: Al pasar el cursor (:hover) por la tarjeta principal, giramos el contenedor interno entero sobre el eje "Y" hacia los 180 grados. */
+.flip-card:hover .flip-card-inner,
+.flip-card:focus-within /* EXPLICACION: "transform-style: preserve-3d" es la propiedad mágica que avisa al navegador que los hijos vivirán en un entorno 3D y no plano. */
+.flip-card-inner {
+  transform: rotateY(180deg);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Caras de la tarjeta */
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* EXPLICACION: Oculta la "espalda" de la foto frontal cuando la tarjeta gira, para que podamos ver el panel trasero en vez del reverso invisible de la imagen frontal. */
+  /* Safari */
+  backface-visibility: hidden; /* EXPLICACION: Oculta la "espalda" de la foto frontal cuando la tarjeta gira, para que podamos ver el panel trasero en vez del reverso invisible de la imagen frontal. */
+  /* Oculta la cara posterior cuando está girada */
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+}
+
+/* Estilo de la cara inicial (Frente) */
+.flip-card-front {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+.front-cover {
+  height: 40%;
+  width: 100%;
+  object-fit: cover;
+  filter: brightness(0.85);
+}
+
+.front-logo {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid var(--color-bg);
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  box-shadow: var(--shadow-sm);
+  z-index: 2;
+}
+
+.front-content {
+  margin-top: 70px;
+  padding: 0 var(--spacing-6);
+}
+
+.front-content h3 {
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-2);
+  font-size: 1.8rem;
+}
+
+.front-content p {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.badge-wrapper {
+  margin-top: var(--spacing-4);
+  display: flex;
+  gap: var(--spacing-2);
+  justify-content: center;
+}
+
+.badge {
+  display: inline-block;
+  padding: var(--spacing-1) var(--spacing-3);
+  background-color: rgba(var(--color-primary-rgb), 0.1);
+  color: var(--color-primary);
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* Estilo de la cara posterior (Atrás) */
+.flip-card-back {
+  background-color: var(--color-primary-dark);
+  color: white;
+  transform: rotateY(180deg);
+  /* Ya está rotada desde un inicio para verla al girar */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: var(--spacing-8);
+  text-align: center;
+}
+
+.flip-card-back .stars {
+  margin-bottom: var(--spacing-4);
+  font-size: 1.8rem;
+  color: #fbbf24;
+}
+
+.flip-card-back p {
+  font-size: 1.1rem;
+  margin-bottom: var(--spacing-6);
+  opacity: 0.9;
+}
+
+.stat-row {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-bottom: var(--spacing-8);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding: var(--spacing-4) 0;
+}
+
+.stat-item h4 {
+  font-size: 1.8rem;
+  margin-bottom: 0px;
+  font-family: var(--font-sans);
+}
+
+.stat-item span {
+  font-size: 0.85rem;
+  opacity: 0.8;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* 
+===============================================
+ RATING INTERACTIVO CSS-ONLY CON COMBINADORES  
+===============================================
+*/
+
+.review-section {
+  background-color: var(--color-bg-alt);
+  padding: var(--spacing-24) 0;
+  text-align: center;
+  border-top: 1px solid var(--color-border);
+}
+
+.rating-widget {
+  background-color: var(--color-bg);
+  display: inline-block;
+  padding: var(--spacing-12);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  margin-top: var(--spacing-8);
+  border: 1px solid var(--color-border);
+  min-width: 320px;
+  max-width: 100%;
+}
+
+.rating-widget h3 {
+  margin-bottom: var(--spacing-8);
+  color: var(--color-text);
+}
+
+/* El truco: flex-direction row-reverse. Los elementos HTML 5-4-3-2-1 aparecen como 1-2-3-4-5. 
+  El selector genérico de hermanos (~) afecta a los elementos siguientes en el DOM, por tanto si tocamos el 3, afecta al 2 y al 1 naturalemente, coloreandolos todos.
+*/
+.rating-interaction {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.rating-interaction input[type="radio"] {
+  display: none;
+}
+
+.rating-interaction label {
+  font-size: 3.5rem;
+  color: var(--color-border);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  order: 1;
+  /* Mantener las estrellas arriba */
+}
+
+/* Reglas de iluminación: la estrella en sí misma + hermanos siguientes + estrella seleccionada y sus siguientes hermanas */
+.rating-interaction label:hover,
+/* EXPLICACION: El selector "~" (virgulilla) significa "hermanos siguientes". Si hacemos hover a la estrella 3, aplica este color a la 2 y 1. Por eso usamos "flex-direction: row-reverse" en el contenedor: para invertir visualmente la cuenta y hacer este truco de cascada sin javascript. */
+.rating-interaction label:hover~label,
+.rating-interaction input:checked~label {
+  color: #fbbf24;
+  text-shadow: 0 4px 15px rgba(251, 191, 36, 0.5);
+  transform: scale(1.1);
+}
+
+/* Pequeña animación pop en las hermanas */
+.rating-interaction input:checked+label,
+.rating-interaction input:checked~label {
+  animation: pop 0.4s ease-out;
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.3);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Mensajes condicionales en CSS basados en el checked estado */
+.feedback-text {
+  width: 100%;
+  /* Forzamos nueva línea */
+  order: 2;
+  /* Aparece debajo de las estrellas */
+  margin-top: var(--spacing-6);
+  height: 30px;
+  position: relative;
+}
+
+.feedback-text span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+  color: var(--color-primary);
+  font-weight: 600;
+  font-size: 1.1rem;
+  transform: translateY(10px);
+}
+
+#rate-5:checked~.feedback-text .t-5,
+#rate-4:checked~.feedback-text .t-4,
+#rate-3:checked~.feedback-text .t-3,
+#rate-2:checked~.feedback-text .t-2,
+#rate-1:checked~.feedback-text .t-1 {
+  opacity: 1;
+  transform: translateY(0);
+}
