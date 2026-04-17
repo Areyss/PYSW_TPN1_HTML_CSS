@@ -52,7 +52,7 @@
 }
 
 /* El elemento interior que sufre la rotación real */
-/* EXPLICACION: "transform-style: preserve-3d" es la propiedad mágica que avisa al navegador que los hijos vivirán en un entorno 3D y no plano. */
+/* transform-style: preserve-3d es la propiedad que avisa al navegador que los hijos vivirán en un entorno 3D y no plano. */
 .flip-card-inner {
   position: relative;
   width: 100%;
@@ -67,9 +67,11 @@
 }
 
 /* Hover sobre la tarjeta padre gira el niño a 180° */
-/* EXPLICACION: Al pasar el cursor (:hover) por la tarjeta principal, giramos el contenedor interno entero sobre el eje "Y" hacia los 180 grados. */
+/* Al pasar el cursor (:hover) por la tarjeta principal, giramos el contenedor interno entero sobre el eje "Y" hacia los 180 grados. */
 .flip-card:hover .flip-card-inner,
-.flip-card:focus-within /* EXPLICACION: "transform-style: preserve-3d" es la propiedad mágica que avisa al navegador que los hijos vivirán en un entorno 3D y no plano. */
+.flip-card:focus-within
+
+/* "transform-style: preserve-3d" es la propiedad que avisa al navegador que los hijos vivirán en un entorno 3D y no plano. */
 .flip-card-inner {
   transform: rotateY(180deg);
   box-shadow: var(--shadow-lg);
@@ -81,9 +83,11 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  -webkit-backface-visibility: hidden; /* EXPLICACION: Oculta la "espalda" de la foto frontal cuando la tarjeta gira, para que podamos ver el panel trasero en vez del reverso invisible de la imagen frontal. */
+  -webkit-backface-visibility: hidden;
+  /* Oculta la "espalda" de la foto frontal cuando la tarjeta gira, para que podamos ver el panel trasero en vez del reverso invisible de la imagen frontal. */
   /* Safari */
-  backface-visibility: hidden; /* EXPLICACION: Oculta la "espalda" de la foto frontal cuando la tarjeta gira, para que podamos ver el panel trasero en vez del reverso invisible de la imagen frontal. */
+  backface-visibility: hidden;
+  /* Oculta la "espalda" de la foto frontal cuando la tarjeta gira, para que podamos ver el panel trasero en vez del reverso invisible de la imagen frontal. */
   /* Oculta la cara posterior cuando está girada */
   border-radius: var(--radius-lg);
   overflow: hidden;
@@ -231,7 +235,7 @@
   color: var(--color-text);
 }
 
-/* El truco: flex-direction row-reverse. Los elementos HTML 5-4-3-2-1 aparecen como 1-2-3-4-5. 
+/* flex-direction row-reverse. Los elementos HTML 5-4-3-2-1 aparecen como 1-2-3-4-5. 
   El selector genérico de hermanos (~) afecta a los elementos siguientes en el DOM, por tanto si tocamos el 3, afecta al 2 y al 1 naturalemente, coloreandolos todos.
 */
 .rating-interaction {
@@ -256,7 +260,7 @@
 
 /* Reglas de iluminación: la estrella en sí misma + hermanos siguientes + estrella seleccionada y sus siguientes hermanas */
 .rating-interaction label:hover,
-/* EXPLICACION: El selector "~" (virgulilla) significa "hermanos siguientes". Si hacemos hover a la estrella 3, aplica este color a la 2 y 1. Por eso usamos "flex-direction: row-reverse" en el contenedor: para invertir visualmente la cuenta y hacer este truco de cascada sin javascript. */
+/* El selector "~" (virgulilla) significa "hermanos siguientes". Si hacemos hover a la estrella 3, aplica este color a la 2 y 1. Por eso usamos "flex-direction: row-reverse" en el contenedor: para invertir visualmente la cuenta y hacer este truco de cascada sin javascript. */
 .rating-interaction label:hover~label,
 .rating-interaction input:checked~label {
   color: #fbbf24;

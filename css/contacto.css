@@ -126,7 +126,7 @@ textarea.form-control~.form-label {
   top: 2rem;
 }
 
-/* Floating Label Logic: Activo si tiene foco O si no muestra el placeholder (es decir, tiene texto) */
+/* Activo si tiene foco O si no muestra el placeholder (es decir, tiene texto) */
 .form-control:focus~.form-label,
 .form-control:not(:placeholder-shown)~.form-label {
   top: 0;
@@ -143,7 +143,7 @@ textarea.form-control~.form-label {
   box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.1);
 }
 
-/* Native CSS Validation Styles */
+/* Validation Styles */
 /* Verde para :valid cuando ya se ha ingresado texto */
 .form-control:not(:placeholder-shown):valid {
   border-color: #10b981;
@@ -186,7 +186,7 @@ textarea.form-control~.status-icon {
   opacity: 1;
 }
 
-/* Dynamic Error Text Displayed ONLY when invalid */
+/* Texto de error dinamico que se activa solo cuando hay un error */
 .error-msg {
   display: block;
   font-size: 0.8rem;

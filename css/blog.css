@@ -118,12 +118,12 @@
   }
 }
 
-/* The Magic Drop Cap (Letra Capital) */
+/* Letra Capital */
 .drop-cap {
   position: relative;
 }
 
-/* EXPLICACION: ::first-letter es un pseudo-elemento de CSS que nos permite cambiar la primera letra del texto para que parezca una revista antigua (Drop Cap). */
+/* ::first-letter es un pseudo-elemento de CSS que nos permite cambiar la primera letra del texto para que parezca una revista antigua (Drop Cap). */
 .drop-cap::first-letter {
   float: left;
   font-size: 5rem;
@@ -182,7 +182,7 @@
   overflow: hidden;
 }
 
-/* Newspaper Ornamental Divider (Only CSS) */
+/* Newspaper Ornamental Divider */
 .newspaper-divider {
   grid-column: span 12;
   height: 4px;

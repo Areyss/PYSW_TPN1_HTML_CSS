@@ -96,34 +96,42 @@
   display: none;
 }
 
-/* Robust CSS Columns Masonry */
+/* Efecto Masonry usando CSS Grid Avanzado y Denso */
+/* Como Grid fuerza espacios vacíos cuando las tarjetas tienen distintas alturas, para resolverlo es usar 'grid-auto-flow: dense' y 'grid-auto-rows' pequeños. Luego, le decimos a cada tarjeta cuántos "mini-bloques" ocupará según su tamaño original. Así las piezas encajan como un Tetris, formando un Masonry real. */
 .masonry-grid {
-  column-count: 3;
-  column-gap: var(--spacing-6);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-auto-rows: 120px;
+  gap: var(--spacing-4);
+  grid-auto-flow: dense;
+  /* Fuerza a las piezas chicas a rellenar los huecos vacíos */
   width: 100%;
 }
 
 .masonry-item {
-  break-inside: avoid;
-  margin-bottom: var(--spacing-6);
-  width: 100%;
+  grid-row: span 3;
+  /* Altura estándar: 3 bloques */
 }
 
-@media (max-width: 900px) {
-  .masonry-grid {
-    column-count: 2;
-  }
+/* Tarjetas con imágenes más altas (Portrait) */
+.masonry-item:nth-child(6),
+.masonry-item:nth-child(7),
+.masonry-item:nth-child(3) {
+  grid-row: span 4;
+  /* Altura larga: 4 bloques */
 }
 
-@media (max-width: 600px) {
-  .masonry-grid {
-    column-count: 1;
-  }
+/* Tarjetas con menos texto o más cortas */
+.masonry-item:nth-child(2),
+.masonry-item:nth-child(9),
+.masonry-item:nth-child(10) {
+  grid-row: span 2;
+  /* Altura corta: 2 bloques */
 }
 
-/* allow natural heights */
+/* Ajustes internos para que la tarjeta fluya dentro de sus celdas de grid */
 .masonry-item .card {
-  height: auto;
+  height: 100%;
   display: flex;
   flex-direction: column;
 }
@@ -131,18 +139,17 @@
 .masonry-item .card-image-wrapper {
   position: relative;
   overflow: hidden;
-  height: auto;
-  /* Natural height */
+  flex-grow: 1;
+  /* La imagen absorbe el espacio extra de la celda */
   aspect-ratio: unset;
-  /* Override components.css */
 }
 
 .masonry-item .card-img {
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: auto;
-  /* Image dictates height */
-  display: block;
+  height: 100%;
   object-fit: cover;
 }
 
